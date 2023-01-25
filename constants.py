@@ -1,0 +1,6 @@
+ARR = [[0 for i in range(28) for _ in range(34)]]
+SIZE_MAP_EDITOR = WIDTH_MAP_EDITOR, HEIGHT_MAP_EDITOR = 748, 544
+SIZE_GAME = WIDTH_GAME, HEIGHT_GAME = 448, 544
+PATH_TO_FONT = "data/fonts/Pixeboy-z8XGD.ttf"
+GAP = 50
+FILL_WIDTH = 448
