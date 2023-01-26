@@ -71,12 +71,15 @@ Function for check contact ghost and pacman
 '''
 
 
-def collision_pacman_ghost(stats, pacman, ghosts, start, run, screen, volume):
+def collision_pacman_ghost(stats, pacman, ghosts, start, run, screen, volume, reds_list):
     collision = pygame.sprite.spritecollideany(pacman, ghosts)
     if collision and pacman.energized:
         for ghost in ghosts:
             if pygame.sprite.collide_mask(pacman, ghost):
-                ghost.__init__(screen)
+                if type(ghost) == Blue:
+                    ghost.__init__(screen, random.choice(reds_list))
+                else:
+                    ghost.__init__(screen)
                 # ghost.collide_with_energazed = True
                 stats.score += 200
                 eat = pygame.mixer.Sound("data/musics/eat_ghosts.mp3")
@@ -321,14 +324,25 @@ def first_draw_field(screen, grains, super_grains, array):
 
 # Функция init ghosts создает заданное количество рандомных призраков, Surface(screen) на котором они будут отрисованы и 
 # группу (Group) спрайтов призраков, куда при инициализации каждый добавляется
-def init_ghosts(screen, ghosts, quanity): 
-    for i in range(quanity):
+def init_ghosts(screen, ghosts, quanity):
+    Reds = [Red(screen, ghosts)]
+    for _ in range(quanity - 1):
         number = random.randint(1, 4)
         if number == 1:
-            Red(screen, ghosts)
+            Reds.append(Red(screen, ghosts))
         if number == 2:
-            Blue(screen, ghosts)
+            Blue(screen, random.choice(Reds), ghosts)
         if number == 3:
             Orange(screen, ghosts)
         if number == 4:
             Pink(screen, ghosts)
+
+
+
+def get_red_ghosts(ghosts: pygame.sprite.Group) -> list:
+    Reds_list = list()
+    for ghost in ghosts:
+        if type(ghost) == Red:
+            Reds_list.append(ghost)
+    
+    return Reds_list

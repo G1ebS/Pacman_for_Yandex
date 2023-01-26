@@ -31,6 +31,7 @@ def run_game(arr=False):
     ghosts = Group()
     pacman = Pacman(screen)
     controls.init_ghosts(screen, ghosts, int(data[0]))
+    Reds_list = controls.get_red_ghosts(ghosts)
     # orange = Orange(screen)
     # pink = Pink(screen)
     # ghosts.add(red)
@@ -51,7 +52,7 @@ def run_game(arr=False):
             return stats.score
         pacman.update_pacman(arr)
         ghosts.update(pacman, arr)
-        start, run = controls.collision_pacman_ghost(stats, pacman, ghosts, start, run, screen, int(data[1]))
+        start, run = controls.collision_pacman_ghost(stats, pacman, ghosts, start, run, screen, int(data[1]), Reds_list)
         if not run:
             return stats.score
         controls.update(bg_color, screen, pacman, grains, super_grains, sc, counter, ghosts, start, arr)
