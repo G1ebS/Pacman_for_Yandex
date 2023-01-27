@@ -40,10 +40,12 @@ class Red(pygame.sprite.Sprite):
         self.tp = True
         self.collide_with_energazed = False
         self.last_spawn_time = datetime.now()
-        self.fear = False
+        self.fear = True
         self.start = True
         self.time_to_tp = 10 ** 6 // 2
         self.type_time_for_tp = "microseconds"
+        self.counter = 0
+        self.last_check_time = datetime.now()
 
     def output(self):
         self.screen.blit(self.image, self.rect)
@@ -57,7 +59,7 @@ class Red(pygame.sprite.Sprite):
     def update(self, pacman, array):
         # (self.collide_with_walls())
         # sleep(0.5)
-        print()
+        # print()
         field = arr
         if array:
             field = array
@@ -110,20 +112,15 @@ class Red(pygame.sprite.Sprite):
             except IndexError:
                 pass
 
-            # from time import sleep
             print(dirs)
             print(can_go)
             print(self.rect.x)
-            # print(self.vector)
             if len((((dirs)))) >= 2:# self.dir
                 self.going = False
 
             if not self.going:
-                print(self.vector)
                 self.going = True   
-                print(self.vector)
                 if (self.fear):
-                    print(1)
                     print(self.fear, self.start)
                     print(can_go)
                     self.going = True
@@ -137,12 +134,9 @@ class Red(pygame.sprite.Sprite):
                         self.dir = "y"
                     elif dir == "bottom":
                         self.dir = "y"
-                    print(2)
                     # self.going = True
                 elif len(can_go) > 2:
-                    print(can_go)
                     self.mark_target(pacman)
-                    print("i")
                     distances = list()
                     for new_vector in can_go:
                         current_x = self.rect.x
@@ -155,15 +149,10 @@ class Red(pygame.sprite.Sprite):
                             distances.append((math.sqrt(((current_x) - self.target_x) ** 2 + ((current_y - 2) - self.target_y) ** 2), "top"))
                         if new_vector == "bottom" and self.vector != "top":
                             distances.append((math.sqrt(((current_x) - self.target_x) ** 2 + ((current_y + 2) - self.target_y) ** 2), "bottom"))
-                    print(distances)
                     choose = min(distances, key=lambda x: x[0])
                     self.vector = choose[1]
                     self.dir = vector_to_dir[choose[1]]
-                    print(self.vector)
                 else:
-                    print("e")
-                    print(can_go)
-                    print(self.vector)
                     for new_vector in can_go:
                         if antonims[new_vector] != self.vector: 
                             print(new_vector)
@@ -178,7 +167,7 @@ class Red(pygame.sprite.Sprite):
             if self.vector == "left":
                 self.rect.x -= 2
                 if self.rect.x <= 0:
-                    print(1)                
+                    # print(1)
                     self.rect.x = WIDTH_GAME
             if self.vector == "top":
                 self.rect.y -= 2
@@ -187,8 +176,25 @@ class Red(pygame.sprite.Sprite):
                 
                 
     def mark_target(self, pacman):
-        self.target_x = pacman.rect.x
-        self.target_y = pacman.rect.y
+        if self.counter % 2:
+            # self.counter += 1
+            self.target_x = pacman.rect.x
+            self.target_y = pacman.rect.y
+            if check_time(self.last_check_time, 6, "seconds"):
+                self.last_check_time = datetime.now()
+                self.counter += 1       
+        elif not self.counter % 2:
+            # self.counter += 1
+            self.target_x = 16 * 23
+            self.target_y = 16 * 0
+            # self.last_check_time = datetime.now()
+            if check_time(self.last_check_time, 10, "seconds"):
+                self.last_check_time = datetime.now()
+                self.counter += 1
+
+
+
+
 
 
 class Pink(Red):
@@ -204,13 +210,13 @@ class Pink(Red):
         self.target_x = pacman.rect.x
         self.target_y = pacman.rect.y
         if pacman.direction == 0:
-            self.target_x += 16 * 4
+            self.target_x = min(WIDTH_GAME, self.target_x + 16 * 4)
         elif pacman.direction == 1:
-            self.target_x -= 16 * 4
+            self.target_x = max(0, self.target_x - 16 * 4)
         if pacman.direction == 2:
-            self.target_y -= 16 * 4
+            self.target_y = max(0, self.target_y - 16 * 4)
         elif pacman.direction == 3:
-            self.target_y += 16 * 4
+            self.target_y = min(WIDTH_GAME,  self.target_y + 16 * 4)
         
 
 

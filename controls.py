@@ -85,14 +85,14 @@ def collision_pacman_ghost(stats, pacman, ghosts, start, run, screen, volume, re
                 eat = pygame.mixer.Sound("data/musics/eat_ghosts.mp3")
                 eat.set_volume(0.01 * volume)
                 eat.play()
-    elif collision and not pacman.god_mode and stats.pacmans_left > 0:
+    elif collision and not pacman.god_mode and stats.pacmans_left >= 0:
         stats.pacmans_left -= 1
         reducing_lives = pygame.mixer.Sound("data/musics/reducing_lives_pacman.mp3")
         reducing_lives.set_volume(0.01 * volume)
         reducing_lives.play()
         start = time.time()
         pacman.god_mode = True
-    elif stats.pacmans_left == 0:
+    elif stats.pacmans_left == -1:
         pygame.quit()
         run = False
         return None, run
