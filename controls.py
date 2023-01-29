@@ -3,11 +3,11 @@ import time
 import sys
 import random
 from datetime import datetime
-from grain import Grain
-from super_grain import Super_Grain
+from classes.game_classes.grain import Grain
+from classes.game_classes.super_grain import Super_Grain
 from field import arr
-from pause import start_pause
-from ghosts import Red, Blue, Orange, Pink
+from classes.pygame_menus.pause import start_pause
+from classes.game_classes.ghosts import Red, Blue, Orange, Pink
 
 '''
 Function for check events in pacman game

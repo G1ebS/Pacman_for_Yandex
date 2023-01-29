@@ -1,12 +1,12 @@
 import sys
 from PyQt5.QtWidgets import QApplication
-from start_game import start
-from new_record import Records
-from game_over_menu import game_over_screen
-from run import run_game
-from settings import Settings
-from leeader_board import LeaderBoard
-from map_editor_start import start as start_map_editor
+from classes.pygame_menus.start_game import start
+from classes.Pyqt_menus.new_record import Records
+from classes.pygame_menus.game_over_menu import game_over_screen
+from classes.pygame_menus.run import run_game
+from classes.Pyqt_menus.settings import Settings
+from classes.Pyqt_menus.leeader_board import LeaderBoard
+from classes.pygame_menus.map_editor_start import start as start_map_editor
 
 
 '''
