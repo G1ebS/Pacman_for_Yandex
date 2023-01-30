@@ -12,4 +12,19 @@
 6) Before starting the game, check if you have downloaded the PyQt5 and pygame libraries
 7) If you have any questions, please contact me by telegram (@whaterni)
 
+
+## Structure
+CLASSES
+    -- game_classes - claases with which we interact in the game
+    -- menu_classes - classes on pygame which helps in menus
+    -- pygame_menus - menus which bases on pygame
+    -- Pyqt_menus - menus which bases on Pyqt
+    -- Statistic - classes for count statistic
+DATA - all static files
+
+arrays.py - main field for map_editor
+controls.py - file where we are processing
+field.py - main base field
+constants.py - constants
+utils.py - functions which we used without pygame
 ## Have a good game!
