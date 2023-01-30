@@ -30,7 +30,7 @@ def start():
         my_button2 = Button('   Rating', 207, 530, True, font, screen, 190)
         my_button3 = Button('Settings', 409, 530, True, font, screen, 190)
         my_button4 = Button('    Start', 611, 530, True, font, screen, 190)
-        my_button5 = Button('   Editor', 409, 455, True, font, screen, 190)
+        my_button5 = Button('   Editor', (WIDTH - 190) // 2, 455, True, font, screen, 190)
 
         screen.blit(ts1, (90, 50))
         pygame.display.flip()

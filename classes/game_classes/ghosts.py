@@ -11,8 +11,7 @@ vector_to_dir = {"left": "x", "right": "x", "bottom": "y", "top": "y"}
 
 
 '''
-4 classes for ghost.
-Now it is +-copy-paste, but in future it is easier to do ghost algorithm, like in original pacman
+4 classes for ghost with algorithm from original Pacman
 '''
 
 
@@ -43,9 +42,9 @@ class Red(pygame.sprite.Sprite):
         self.start = True
         self.time_to_tp = 10 ** 6 // 2
         self.type_time_for_tp = "microseconds"
-        self.counter = 0
+        self.counter = 1
         self.last_check_time = datetime.now()
-        self.chase_time = 4
+        self.chase_time = 8
         self.run_away_time = 5
         self.run_away_target_x = 16 * 23
         self.run_away_target_y = 16 * 0

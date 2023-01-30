@@ -18,7 +18,7 @@ def run_game(arr=False):
     f = open('settings.txt', 'r')
     data = [line.strip() for line in f]
     f.close()
-    pygame.mixer.music.load('data/musics/show.mp3')
+    pygame.mixer.music.load('data/musics/game_track.mp3')
     pygame.mixer.music.play(-1)
     pygame.mixer.music.set_volume(0.01 * int(data[1]))
     clock = pygame.time.Clock()
