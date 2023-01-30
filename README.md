@@ -1,6 +1,8 @@
 # Pacman
 
+##  Main idea
 
+Create pacman with original mechanics
 
 ## Main Details
 
