@@ -4,7 +4,6 @@ from classes.menu_classes.background import Background
 import pygame
 
 
-
 def start():
     pygame.init()
     pygame.font.init()
@@ -18,7 +17,7 @@ def start():
     run = True
     font = pygame.font.Font("data/fonts/Pixeboy-z8XGD.ttf", 50)
     font2 = pygame.font.Font("data/fonts/Pixeboy-z8XGD.ttf", 165)
-    BG = Background('data/images/background_images/backgroundpicture.jpg', [0, 0])
+    BG = Background("data/images/background_images/backgroundpicture.jpg", [0, 0])
 
     while run:
         title = "Pacman"
@@ -26,11 +25,13 @@ def start():
         screen.blit(BG.image, BG.rect)
 
         timer.tick(fps)
-        my_button1 = Button('      Exit', 5, 530, True, font, screen, 190)
-        my_button2 = Button('   Rating', 207, 530, True, font, screen, 190)
-        my_button3 = Button('Settings', 409, 530, True, font, screen, 190)
-        my_button4 = Button('    Start', 611, 530, True, font, screen, 190)
-        my_button5 = Button('   Editor', (WIDTH - 190) // 2, 455, True, font, screen, 190)
+        my_button1 = Button("      Exit", 5, 530, True, font, screen, 190)
+        my_button2 = Button("   Rating", 207, 530, True, font, screen, 190)
+        my_button3 = Button("Settings", 409, 530, True, font, screen, 190)
+        my_button4 = Button("    Start", 611, 530, True, font, screen, 190)
+        my_button5 = Button(
+            "   Editor", (WIDTH - 190) // 2, 455, True, font, screen, 190
+        )
 
         screen.blit(ts1, (90, 50))
         pygame.display.flip()
@@ -41,21 +42,21 @@ def start():
                 if my_button1.check_click():
                     run = False
                     pygame.quit()
-                    return 'exit'
+                    return "exit"
                 elif my_button4.check_click():
                     run = False
                     pygame.quit()
-                    return 'game'
+                    return "game"
                 elif my_button2.check_click():
                     pygame.quit()
-                    return 'leaderboard'
+                    return "leaderboard"
                 elif my_button3.check_click():
                     pygame.quit()
-                    return 'settings'
+                    return "settings"
                 elif my_button5.check_click():
                     pygame.quit()
-                    return 'editor'
+                    return "editor"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     start()

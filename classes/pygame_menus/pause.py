@@ -2,6 +2,7 @@ import pygame
 from utils import type_text
 from constants import WIDTH_GAME, HEIGHT_GAME
 
+
 def start_pause(screen):
     paused: bool = True
     clock = pygame.time.Clock()
@@ -13,7 +14,9 @@ def start_pause(screen):
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
-        type_text("Paused. Press ENTER to continue", WIDTH_GAME // 2, WIDTH_GAME // 2, screen)
+        type_text(
+            "Paused. Press ENTER to continue", WIDTH_GAME // 2, WIDTH_GAME // 2, screen
+        )
         keys = pygame.key.get_pressed()
         if keys[pygame.K_RETURN]:
             paused = False

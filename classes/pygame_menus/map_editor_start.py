@@ -17,7 +17,9 @@ def draw_field(screen):
                 pygame.draw.rect(screen, (125, 124, 124), (j * 16, i * 16, 16, 16), 1)
             elif arr[i][j] == 2:
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 16), 3)
-                pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 3, (i * 16) + 3, 13, 13))
+                pygame.draw.rect(
+                    screen, (0, 0, 0), ((j * 16) + 3, (i * 16) + 3, 13, 13)
+                )
             elif arr[i][j] == 3:
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 16), 3)
                 pygame.draw.rect(screen, (0, 0, 0), (j * 16, (i * 16) + 3, 16, 13))
@@ -38,7 +40,9 @@ def draw_field(screen):
                 pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 3, i * 16, 10, 16))
             elif arr[i][j] == 9:
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 16), 3)
-                pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 3, (i * 16) + 3, 10, 13))
+                pygame.draw.rect(
+                    screen, (0, 0, 0), ((j * 16) + 3, (i * 16) + 3, 10, 13)
+                )
             elif arr[i][j] == 10:
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 16), 3)
                 pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 3, i * 16, 10, 13))
@@ -49,62 +53,82 @@ def draw_field(screen):
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 16), 3)
                 pygame.draw.rect(screen, (0, 0, 0), (j * 16, i * 16, 13, 16))
             elif arr[i][j] == 13:
-                pygame.draw.circle(screen, (0, 0, 170), ((j * 16) + 8, (i * 16) + 8), 8, 3)
+                pygame.draw.circle(
+                    screen, (0, 0, 170), ((j * 16) + 8, (i * 16) + 8), 8, 3
+                )
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 8), 3)
                 pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 3, i * 16, 13, 8))
                 pygame.draw.rect(screen, (0, 0, 170), ((j * 16) + 8, i * 16, 8, 16), 3)
                 pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 8, i * 16, 8, 13))
             elif arr[i][j] == 14:
-                pygame.draw.circle(screen, (0, 0, 170), ((j * 16) + 8, (i * 16) + 8), 8, 3)
+                pygame.draw.circle(
+                    screen, (0, 0, 170), ((j * 16) + 8, (i * 16) + 8), 8, 3
+                )
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, (i * 16) + 8, 16, 8), 3)
                 pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 3, (i * 16) + 8, 13, 8))
                 pygame.draw.rect(screen, (0, 0, 170), ((j * 16) + 8, i * 16, 8, 16), 3)
                 pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 8, (i * 16) + 3, 8, 13))
             elif arr[i][j] == 15:
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 16), 3)
-                pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 3, (i * 16) + 3, 13, 10))
+                pygame.draw.rect(
+                    screen, (0, 0, 0), ((j * 16) + 3, (i * 16) + 3, 13, 10)
+                )
             elif arr[i][j] == 16:
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 16), 3)
                 pygame.draw.rect(screen, (0, 0, 0), (j * 16, (i * 16) + 3, 13, 10))
             elif arr[i][j] == 17:
-                pygame.draw.circle(screen, (0, 0, 170), ((j * 16) + 8, (i * 16) + 8), 8, 3)
+                pygame.draw.circle(
+                    screen, (0, 0, 170), ((j * 16) + 8, (i * 16) + 8), 8, 3
+                )
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 8, 16))
                 pygame.draw.rect(screen, (0, 0, 0), (j * 16, (i * 16) + 3, 8, 13))
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, (i * 16) + 8, 16, 8))
                 pygame.draw.rect(screen, (0, 0, 0), (j * 16, (i * 16) + 8, 13, 8))
             elif arr[i][j] == 18:
-                pygame.draw.circle(screen, (0, 0, 170), ((j * 16) + 8, (i * 16) + 8), 8, 3)
+                pygame.draw.circle(
+                    screen, (0, 0, 170), ((j * 16) + 8, (i * 16) + 8), 8, 3
+                )
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 8))
                 pygame.draw.rect(screen, (0, 0, 0), (j * 16, i * 16, 13, 8))
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 8, 16))
                 pygame.draw.rect(screen, (0, 0, 0), (j * 16, i * 16, 8, 13))
+
 
 # 1
 def draw_two_lines_horizontal(screen, WIDTH, coords):
     x, y = coords
     pygame.draw.line(screen, (0, 0, 170), [x, y], [x + WIDTH, y], 3)
     pygame.draw.line(screen, (0, 0, 170), [x, y + WIDTH], [x + WIDTH, y + WIDTH], 3)
+
+
 # 2
+
 
 def draw_angular_top_left(screen, WIDTH, coords):
     x, y = coords
     pygame.draw.line(screen, (0, 0, 170), [x, y], [x + WIDTH, y], 3)
     pygame.draw.line(screen, (0, 0, 170), [x, y], [x, y + WIDTH], 3)
 
+
 # 3
+
 
 def draw_line_top(screen, WIDTH, coords):
     x, y = coords
     pygame.draw.line(screen, (0, 0, 170), [x, y], [x + WIDTH, y], 3)
 
+
 # 4
+
 
 def draw_angular_top_right(screen, WIDTH, coords):
     x, y = coords
     pygame.draw.line(screen, (0, 0, 170), [x, y], [x + WIDTH, y], 3)
     pygame.draw.line(screen, (0, 0, 170), [x + WIDTH, y], [x + WIDTH, y + WIDTH], 3)
 
+
 # 5
+
 
 def draw_angular_bottom_left(screen, WIDTH, coords):
     # print(coords)
@@ -112,13 +136,17 @@ def draw_angular_bottom_left(screen, WIDTH, coords):
     pygame.draw.line(screen, (0, 0, 170), [x, y], [x, y + WIDTH], 3)
     pygame.draw.line(screen, (0, 0, 170), [x, y + WIDTH], [x + WIDTH, y + WIDTH], 3)
 
+
 # 6
+
 
 def draw_line_bottom(screen, WIDTH, coords):
     x, y = coords
     pygame.draw.line(screen, (0, 0, 170), [x, y + WIDTH], [x + WIDTH, y + WIDTH], 3)
 
+
 # 7
+
 
 def draw_angular_bottom_right(screen, WIDTH, coords):
     x, y = coords
@@ -128,6 +156,7 @@ def draw_angular_bottom_right(screen, WIDTH, coords):
 
 # 8
 
+
 def draw_two_parallel_vertical_lines(screen, WIDTH, coords):
     x, y = coords
     pygame.draw.line(screen, (0, 0, 170), [x, y], [x, y + WIDTH], 3)
@@ -136,13 +165,16 @@ def draw_two_parallel_vertical_lines(screen, WIDTH, coords):
 
 # 9
 
+
 def draw_left_bottom_right_lines(screen, WIDTH, coords):
     x, y = coords
     pygame.draw.line(screen, (0, 0, 170), [x, y], [x, y + WIDTH], 3)
     pygame.draw.line(screen, (0, 0, 170), [x + WIDTH, y], [x + WIDTH, y + WIDTH], 3)
     pygame.draw.line(screen, (0, 0, 170), [x, y + WIDTH], [x + WIDTH, y + WIDTH], 3)
 
+
 # 10
+
 
 def draw_left_top_right_lines(screen, WIDTH, coords):
     x, y = coords
@@ -152,6 +184,7 @@ def draw_left_top_right_lines(screen, WIDTH, coords):
 
 
 # 11
+
 
 def draw_vertical_left_line(screen, WIDTH, coords):
     x, y = coords
@@ -163,23 +196,24 @@ def draw_vertical_right_line(screen, WIDTH, coords):
     x, y = coords
     pygame.draw.line(screen, (0, 0, 170), [x + WIDTH, y + WIDTH], [x + WIDTH, y], 3)
 
+
 # 13
+
 
 def draw_rounded_angular_bottom_left(screen, WIDTH, coords):
     x, y = coords
     pi = 3.14
-    pygame.draw.arc(screen, (0, 0, 170),
-                    (x, y, WIDTH, WIDTH),
-                    pi, 3 * pi / 2, 3)
+    pygame.draw.arc(screen, (0, 0, 170), (x, y, WIDTH, WIDTH), pi, 3 * pi / 2, 3)
+
 
 # 14
+
 
 def draw_rounded_angular_top_left(screen, WIDTH, coords):
     x, y = coords
     pi = 3.14
-    pygame.draw.arc(screen, (0, 0, 170),
-                    (x, y, WIDTH, WIDTH),
-                    -3 * pi / 2, -pi, 3)
+    pygame.draw.arc(screen, (0, 0, 170), (x, y, WIDTH, WIDTH), -3 * pi / 2, -pi, 3)
+
 
 # 15
 def draw_top_left_bottom_lines(screen, WIDTH, coords):
@@ -188,7 +222,9 @@ def draw_top_left_bottom_lines(screen, WIDTH, coords):
     pygame.draw.line(screen, (0, 0, 170), [x, y], [x + WIDTH, y], 3)
     pygame.draw.line(screen, (0, 0, 170), [x, y + WIDTH], [x + WIDTH, y + WIDTH], 3)
 
-# 16 
+
+# 16
+
 
 def draw_top_right_bottom_lines(screen, WIDTH, coords):
     x, y = coords
@@ -196,25 +232,23 @@ def draw_top_right_bottom_lines(screen, WIDTH, coords):
     pygame.draw.line(screen, (0, 0, 170), [x, y], [x + WIDTH, y], 3)
     pygame.draw.line(screen, (0, 0, 170), [x, y + WIDTH], [x + WIDTH, y + WIDTH], 3)
 
+
 # 17
+
 
 def draw_rounded_angular_top_right(screen, WIDTH, coords):
     x, y = coords
     pi = 3.14
-    pygame.draw.arc(screen, (0, 0, 170),
-                    (x, y, WIDTH, WIDTH),
-                    3 * pi / 2, 2 * pi, 3)
+    pygame.draw.arc(screen, (0, 0, 170), (x, y, WIDTH, WIDTH), 3 * pi / 2, 2 * pi, 3)
+
 
 # 18
+
 
 def draw_rounded_angular_bottom_right(screen, WIDTH, coords):
     x, y = coords
     pi = 3.14
-    pygame.draw.arc(screen, (0, 0, 170),
-                    (x, y, WIDTH, WIDTH),
-                    0, pi / 2, 3)
-
-
+    pygame.draw.arc(screen, (0, 0, 170), (x, y, WIDTH, WIDTH), 0, pi / 2, 3)
 
 
 def start():
@@ -236,26 +270,56 @@ def start():
     # 16 - П образная вещь, смотрящая влево (свободной частью)
     # 17 - закругленный угол справа сверху
     # 18 - закругленный угол справа снизу
-    all_numbered_draws = [draw_two_lines_horizontal, draw_angular_top_left, draw_line_top, draw_angular_top_right,
-                          draw_angular_bottom_left, draw_line_bottom,
-                          draw_angular_bottom_right, draw_two_parallel_vertical_lines, draw_left_top_right_lines,
-                          draw_left_bottom_right_lines, draw_vertical_left_line, draw_vertical_right_line,
-                          draw_rounded_angular_bottom_left, draw_rounded_angular_top_left, draw_top_left_bottom_lines,
-                          draw_top_right_bottom_lines,
-                          draw_rounded_angular_bottom_right, draw_rounded_angular_top_right,
-                          ]
+    all_numbered_draws = [
+        draw_two_lines_horizontal,
+        draw_angular_top_left,
+        draw_line_top,
+        draw_angular_top_right,
+        draw_angular_bottom_left,
+        draw_line_bottom,
+        draw_angular_bottom_right,
+        draw_two_parallel_vertical_lines,
+        draw_left_top_right_lines,
+        draw_left_bottom_right_lines,
+        draw_vertical_left_line,
+        draw_vertical_right_line,
+        draw_rounded_angular_bottom_left,
+        draw_rounded_angular_top_left,
+        draw_top_left_bottom_lines,
+        draw_top_right_bottom_lines,
+        draw_rounded_angular_bottom_right,
+        draw_rounded_angular_top_right,
+    ]
 
     two_lines = [draw_two_lines_horizontal, draw_two_parallel_vertical_lines]
 
-    lines = [draw_line_top, draw_line_bottom, draw_vertical_right_line, draw_vertical_left_line]
+    lines = [
+        draw_line_top,
+        draw_line_bottom,
+        draw_vertical_right_line,
+        draw_vertical_left_line,
+    ]
 
-    angulars = [draw_angular_bottom_right, draw_angular_bottom_left, draw_angular_top_left, draw_angular_top_right]
+    angulars = [
+        draw_angular_bottom_right,
+        draw_angular_bottom_left,
+        draw_angular_top_left,
+        draw_angular_top_right,
+    ]
 
-    rounded_angulars = [draw_rounded_angular_bottom_left, draw_rounded_angular_bottom_right,
-                        draw_rounded_angular_top_left, draw_rounded_angular_top_right]
+    rounded_angulars = [
+        draw_rounded_angular_bottom_left,
+        draw_rounded_angular_bottom_right,
+        draw_rounded_angular_top_left,
+        draw_rounded_angular_top_right,
+    ]
 
-    p_figures = [draw_top_left_bottom_lines, draw_top_right_bottom_lines, draw_left_bottom_right_lines,
-                 draw_left_top_right_lines]
+    p_figures = [
+        draw_top_left_bottom_lines,
+        draw_top_right_bottom_lines,
+        draw_left_bottom_right_lines,
+        draw_left_top_right_lines,
+    ]
 
     all_of_draws = [two_lines, lines, angulars, rounded_angulars, p_figures]
 
@@ -263,13 +327,11 @@ def start():
 
     SIZE = WIDTH, HEIGHT = 748, 620
 
-
-
     pygame.init()
     screen = pygame.display.set_mode(SIZE)
     x, y = 498, 100
     const_x, const_y = 448, 100
-    
+
     for group in all_of_draws:
         x = const_x
         gap = ((WIDTH - x) - 40 * len(group)) // (len(group) + 1)
@@ -281,8 +343,10 @@ def start():
         y += 40 + 40
     font = pygame.font.Font("data/fonts/Pixeboy-z8XGD.ttf", 50)
     while True:
-        my_button4 = Button('    Play', WIDTH - 190, HEIGHT - 65, True, font, screen, 190)
-        my_button1 = Button('    Quit', 0, HEIGHT - 65, True, font, screen, 190)
+        my_button4 = Button(
+            "    Play", WIDTH - 190, HEIGHT - 65, True, font, screen, 190
+        )
+        my_button1 = Button("    Quit", 0, HEIGHT - 65, True, font, screen, 190)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()

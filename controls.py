@@ -9,9 +9,9 @@ from field import arr
 from classes.pygame_menus.pause import start_pause
 from classes.game_classes.ghosts import Red, Blue, Orange, Pink
 
-'''
+"""
 Function for check events in pacman game
-'''
+"""
 
 
 def events(pacman, run, screen):
@@ -44,16 +44,18 @@ def events(pacman, run, screen):
     return run
 
 
-'''
+"""
 Main draw(update screen)
-'''
+"""
 
 
-def update(bg_color, screen, pacman, grains, super_grains, sc, counter, ghosts, start, arr):
+def update(
+    bg_color, screen, pacman, grains, super_grains, sc, counter, ghosts, start, arr
+):
     screen.fill(bg_color)
     draw_field(screen, arr)
-    sc.image_score()  
-    sc.image_high_score() 
+    sc.image_score()
+    sc.image_high_score()
     sc.update_pacmans()
     sc.show_score()
     sc.image_pacmans()
@@ -66,12 +68,14 @@ def update(bg_color, screen, pacman, grains, super_grains, sc, counter, ghosts, 
     pygame.display.flip()
 
 
-'''
+"""
 Function for check contact ghost and pacman
-'''
+"""
 
 
-def collision_pacman_ghost(stats, pacman, ghosts, start, run, screen, volume, reds_list):
+def collision_pacman_ghost(
+    stats, pacman, ghosts, start, run, screen, volume, reds_list
+):
     collision = pygame.sprite.spritecollideany(pacman, ghosts)
     if collision and pacman.energized:
         for ghost in ghosts:
@@ -127,16 +131,16 @@ def update_super_grains(stats, super_grains, pacman, sc, volume):
         check_high_score(stats, sc)
 
 
-'''
+"""
 Function for check high score
-'''
+"""
 
 
 def check_high_score(stats, sc):
     if stats.score > stats.high_score:
         stats.high_score = stats.score
         sc.image_high_score()
-        with open('highscore.txt', 'w') as f:
+        with open("highscore.txt", "w") as f:
             f.write(str(stats.high_score))
 
 
@@ -146,9 +150,9 @@ def check_counter(counter):
     return 0
 
 
-'''
+"""
 2 Function for draw field
-'''
+"""
 
 
 def draw_field(screen, array):
@@ -167,7 +171,9 @@ def draw_field(screen, array):
                 pygame.draw.rect(screen, (0, 0, 0), (j * 16, i * 16, 16, 16))
             elif field[i][j] == 2:
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 16), 3)
-                pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 3, (i * 16) + 3, 13, 13))
+                pygame.draw.rect(
+                    screen, (0, 0, 0), ((j * 16) + 3, (i * 16) + 3, 13, 13)
+                )
             elif field[i][j] == 3:
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 16), 3)
                 pygame.draw.rect(screen, (0, 0, 0), (j * 16, (i * 16) + 3, 16, 13))
@@ -188,7 +194,9 @@ def draw_field(screen, array):
                 pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 3, i * 16, 10, 16))
             elif field[i][j] == 9:
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 16), 3)
-                pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 3, (i * 16) + 3, 10, 13))
+                pygame.draw.rect(
+                    screen, (0, 0, 0), ((j * 16) + 3, (i * 16) + 3, 10, 13)
+                )
             elif field[i][j] == 10:
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 16), 3)
                 pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 3, i * 16, 10, 13))
@@ -199,31 +207,41 @@ def draw_field(screen, array):
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 16), 3)
                 pygame.draw.rect(screen, (0, 0, 0), (j * 16, i * 16, 13, 16))
             elif field[i][j] == 13:
-                pygame.draw.circle(screen, (0, 0, 170), ((j * 16) + 8, (i * 16) + 8), 8, 3)
+                pygame.draw.circle(
+                    screen, (0, 0, 170), ((j * 16) + 8, (i * 16) + 8), 8, 3
+                )
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 8), 3)
                 pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 3, i * 16, 13, 8))
                 pygame.draw.rect(screen, (0, 0, 170), ((j * 16) + 8, i * 16, 8, 16), 3)
                 pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 8, i * 16, 8, 13))
             elif field[i][j] == 14:
-                pygame.draw.circle(screen, (0, 0, 170), ((j * 16) + 8, (i * 16) + 8), 8, 3)
+                pygame.draw.circle(
+                    screen, (0, 0, 170), ((j * 16) + 8, (i * 16) + 8), 8, 3
+                )
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, (i * 16) + 8, 16, 8), 3)
                 pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 3, (i * 16) + 8, 13, 8))
                 pygame.draw.rect(screen, (0, 0, 170), ((j * 16) + 8, i * 16, 8, 16), 3)
                 pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 8, (i * 16) + 3, 8, 13))
             elif field[i][j] == 15:
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 16), 3)
-                pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 3, (i * 16) + 3, 13, 10))
+                pygame.draw.rect(
+                    screen, (0, 0, 0), ((j * 16) + 3, (i * 16) + 3, 13, 10)
+                )
             elif field[i][j] == 16:
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 16), 3)
                 pygame.draw.rect(screen, (0, 0, 0), (j * 16, (i * 16) + 3, 13, 10))
             elif field[i][j] == 17:
-                pygame.draw.circle(screen, (0, 0, 170), ((j * 16) + 8, (i * 16) + 8), 8, 3)
+                pygame.draw.circle(
+                    screen, (0, 0, 170), ((j * 16) + 8, (i * 16) + 8), 8, 3
+                )
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 8, 16))
                 pygame.draw.rect(screen, (0, 0, 0), (j * 16, (i * 16) + 3, 8, 13))
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, (i * 16) + 8, 16, 8))
                 pygame.draw.rect(screen, (0, 0, 0), (j * 16, (i * 16) + 8, 13, 8))
             elif field[i][j] == 18:
-                pygame.draw.circle(screen, (0, 0, 170), ((j * 16) + 8, (i * 16) + 8), 8, 3)
+                pygame.draw.circle(
+                    screen, (0, 0, 170), ((j * 16) + 8, (i * 16) + 8), 8, 3
+                )
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 8))
                 pygame.draw.rect(screen, (0, 0, 0), (j * 16, i * 16, 13, 8))
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 8, 16))
@@ -246,7 +264,9 @@ def first_draw_field(screen, grains, super_grains, array):
                 pygame.draw.rect(screen, (0, 0, 0), (j * 16, i * 16, 16, 16))
             elif field[i][j] == 2:
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 16), 3)
-                pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 3, (i * 16) + 3, 13, 13))
+                pygame.draw.rect(
+                    screen, (0, 0, 0), ((j * 16) + 3, (i * 16) + 3, 13, 13)
+                )
             elif field[i][j] == 3:
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 16), 3)
                 pygame.draw.rect(screen, (0, 0, 0), (j * 16, (i * 16) + 3, 16, 13))
@@ -267,7 +287,9 @@ def first_draw_field(screen, grains, super_grains, array):
                 pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 3, i * 16, 10, 16))
             elif field[i][j] == 9:
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 16), 3)
-                pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 3, (i * 16) + 3, 10, 13))
+                pygame.draw.rect(
+                    screen, (0, 0, 0), ((j * 16) + 3, (i * 16) + 3, 10, 13)
+                )
             elif field[i][j] == 10:
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 16), 3)
                 pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 3, i * 16, 10, 13))
@@ -278,31 +300,41 @@ def first_draw_field(screen, grains, super_grains, array):
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 16), 3)
                 pygame.draw.rect(screen, (0, 0, 0), (j * 16, i * 16, 13, 16))
             elif field[i][j] == 13:
-                pygame.draw.circle(screen, (0, 0, 170), ((j * 16) + 8, (i * 16) + 8), 8, 3)
+                pygame.draw.circle(
+                    screen, (0, 0, 170), ((j * 16) + 8, (i * 16) + 8), 8, 3
+                )
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 8), 3)
                 pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 3, i * 16, 13, 8))
                 pygame.draw.rect(screen, (0, 0, 170), ((j * 16) + 8, i * 16, 8, 16), 3)
                 pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 8, i * 16, 8, 13))
             elif field[i][j] == 14:
-                pygame.draw.circle(screen, (0, 0, 170), ((j * 16) + 8, (i * 16) + 8), 8, 3)
+                pygame.draw.circle(
+                    screen, (0, 0, 170), ((j * 16) + 8, (i * 16) + 8), 8, 3
+                )
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, (i * 16) + 8, 16, 8), 3)
                 pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 3, (i * 16) + 8, 13, 8))
                 pygame.draw.rect(screen, (0, 0, 170), ((j * 16) + 8, i * 16, 8, 16), 3)
                 pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 8, (i * 16) + 3, 8, 13))
             elif field[i][j] == 15:
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 16), 3)
-                pygame.draw.rect(screen, (0, 0, 0), ((j * 16) + 3, (i * 16) + 3, 13, 10))
+                pygame.draw.rect(
+                    screen, (0, 0, 0), ((j * 16) + 3, (i * 16) + 3, 13, 10)
+                )
             elif field[i][j] == 16:
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 16), 3)
                 pygame.draw.rect(screen, (0, 0, 0), (j * 16, (i * 16) + 3, 13, 10))
             elif field[i][j] == 17:
-                pygame.draw.circle(screen, (0, 0, 170), ((j * 16) + 8, (i * 16) + 8), 8, 3)
+                pygame.draw.circle(
+                    screen, (0, 0, 170), ((j * 16) + 8, (i * 16) + 8), 8, 3
+                )
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 8, 16))
                 pygame.draw.rect(screen, (0, 0, 0), (j * 16, (i * 16) + 3, 8, 13))
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, (i * 16) + 8, 16, 8))
                 pygame.draw.rect(screen, (0, 0, 0), (j * 16, (i * 16) + 8, 13, 8))
             elif field[i][j] == 18:
-                pygame.draw.circle(screen, (0, 0, 170), ((j * 16) + 8, (i * 16) + 8), 8, 3)
+                pygame.draw.circle(
+                    screen, (0, 0, 170), ((j * 16) + 8, (i * 16) + 8), 8, 3
+                )
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 16, 8))
                 pygame.draw.rect(screen, (0, 0, 0), (j * 16, i * 16, 13, 8))
                 pygame.draw.rect(screen, (0, 0, 170), (j * 16, i * 16, 8, 16))
@@ -322,7 +354,8 @@ def first_draw_field(screen, grains, super_grains, array):
                 super_grain.rect.y = super_grain.y
                 super_grains.add(super_grain)
 
-# Функция init ghosts создает заданное количество рандомных призраков, Surface(screen) на котором они будут отрисованы и 
+
+# Функция init ghosts создает заданное количество рандомных призраков, Surface(screen) на котором они будут отрисованы и
 # группу (Group) спрайтов призраков, куда при инициализации каждый добавляется
 def init_ghosts(screen, ghosts, quanity):
     Reds = [Red(screen, ghosts)]
@@ -338,11 +371,10 @@ def init_ghosts(screen, ghosts, quanity):
             Pink(screen, ghosts)
 
 
-
 def get_red_ghosts(ghosts: pygame.sprite.Group) -> list:
     Reds_list = list()
     for ghost in ghosts:
         if type(ghost) == Red:
             Reds_list.append(ghost)
-    
+
     return Reds_list

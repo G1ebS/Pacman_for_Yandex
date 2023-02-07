@@ -10,15 +10,17 @@ from classes.statistic_classes.stats import Stats
 SIZE = WIDTH, HEIGHT = 448, 544
 FPS = 60
 
-'''
+"""
 function to run original pacman
-'''
+"""
+
+
 def run_game(arr=False):
     pygame.init()
-    f = open('settings.txt', 'r')
+    f = open("settings.txt", "r")
     data = [line.strip() for line in f]
     f.close()
-    pygame.mixer.music.load('data/musics/game_track.mp3')
+    pygame.mixer.music.load("data/musics/game_track.mp3")
     pygame.mixer.music.play(-1)
     pygame.mixer.music.set_volume(0.01 * int(data[1]))
     clock = pygame.time.Clock()
@@ -52,10 +54,23 @@ def run_game(arr=False):
             return stats.score
         pacman.update_pacman(arr)
         ghosts.update(pacman, arr)
-        start, run = controls.collision_pacman_ghost(stats, pacman, ghosts, start, run, screen, int(data[1]), Reds_list)
+        start, run = controls.collision_pacman_ghost(
+            stats, pacman, ghosts, start, run, screen, int(data[1]), Reds_list
+        )
         if not run:
             return stats.score
-        controls.update(bg_color, screen, pacman, grains, super_grains, sc, counter, ghosts, start, arr)
+        controls.update(
+            bg_color,
+            screen,
+            pacman,
+            grains,
+            super_grains,
+            sc,
+            counter,
+            ghosts,
+            start,
+            arr,
+        )
         controls.update_grains(stats, grains, pacman, sc, int(data[1]))
         controls.update_super_grains(stats, super_grains, pacman, sc, int(data[1]))
         if len(list(grains)) == 0 and len(list(super_grains)) == 0:
